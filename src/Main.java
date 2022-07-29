@@ -1,6 +1,6 @@
+import com.sun.jdi.IntegerType;
 
-
-
+import java.io.IOException;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
@@ -44,12 +44,45 @@ public class Main {
         String ex = sc.next();
         String ex1 = sc.next();
         String ex2 = sc.next();
-        if (sc.hasNext()){
-            out.println("");
-            exit(0);
+        if (sc.nextLine().trim() != "") {
+            try {
+                throw new IOException();
+            } catch (IOException e) {
+                out.println("Please insert 2 numbers and 1 mathematical operator");
+                exit(0);
+            }
         }
-        int r1 = 0;
-
+        try {
+            parseInt(ex);
+            parseInt(ex2);
+            int p = parseInt(ex);
+            int k = parseInt(ex2);
+            if (p > 10 || k > 10) {
+                try {
+                    throw new NumberFormatException();
+                } catch (NumberFormatException e) {
+                    out.println("Please enter the numbers less than or equal to 10");
+                    exit(0);
+                }
+            }
+            out.println("Output:");
+            int g = 0;
+            switch (ex1) {
+                case "+" -> g = p + k;
+                case "-" -> g = p - k;
+                case "*" -> g = p * k;
+                case "/" -> g = p / k;
+            }
+            out.println(g);
+        } catch (NumberFormatException e) {
+            try {parseInt(ex);
+                 parseInt(ex2);
+            }
+                catch (NumberFormatException exception) {
+                    out.println("Different number systems");
+                    exit(0);
+                }
+            int r1 = 0;
             switch (ex) {
                 case ("I"):
                     r1 = I.figure;
@@ -82,7 +115,6 @@ public class Main {
                     r1 = X.figure;
                     break;
             }
-
             int r2 = 9999;
             switch (ex2) {
                 case ("I"):
@@ -116,12 +148,14 @@ public class Main {
                     r2 = X.figure;
                     break;
             }
-            int r3 = 0;
-            switch (ex1) {
-                case "+" -> r3 = (r1 + r2);
-                case "-" -> r3 = (r1 - r2);
-                case "*" -> r3 = (r1 * r2);
-                case "/" -> r3 = (r1 / r2);
+            int r3 = 9999;
+            if (r1 > 0) {
+                switch (ex1) {
+                    case "+" -> r3 = (r1 + r2);
+                    case "-" -> r3 = (r1 - r2);
+                    case "*" -> r3 = (r1 * r2);
+                    case "/" -> r3 = (r1 / r2);
+                }
             }
             int full = r3 / 10;
             int ost = r3 % 10;
@@ -157,109 +191,81 @@ public class Main {
                 case (9):
                     L = "IX";
                     break;
-
             }
             out.println("Output");
-
-
-            if (r3 <= 10) {
-                switch (r3) {
-                    case (0):
-                        out.println("Invalid input");
-                        break;
-                    case (1):
-                        out.println(I.rome);
-                        break;
-                    case (2):
-                        out.println(II.rome);
-                        break;
-                    case (3):
-                        out.println(III.rome);
-                        break;
-                    case (4):
-                        out.println(IV.rome);
-                        break;
-                    case (5):
-                        out.println(V.rome);
-                        break;
-                    case (6):
-                        out.println(VI.rome);
-                        break;
-                    case (7):
-                        out.println(VII.rome);
-                        break;
-                    case (8):
-                        out.println(VIII.rome);
-                        break;
-                    case (9):
-                        out.println(IX.rome);
-                        break;
-                    case (10):
-                        out.println(X.rome);
-                        break;
+            if (r3 <= 0) {
+                try {
+                    throw new IOException();
+                } catch (IOException exception) {
+                    out.println("Result is not possible");
                 }
             }
-
-
-            if (r3 > 10 && r3 < 40) {
-                for (int i = 0; i < full; i++) {
-                    out.print("X");
+                if (r3 <= 10) {
+                    switch (r3) {
+                        case (1):
+                            out.println(I.rome);
+                            break;
+                        case (2):
+                            out.println(II.rome);
+                            break;
+                        case (3):
+                            out.println(III.rome);
+                            break;
+                        case (4):
+                            out.println(IV.rome);
+                            break;
+                        case (5):
+                            out.println(V.rome);
+                            break;
+                        case (6):
+                            out.println(VI.rome);
+                            break;
+                        case (7):
+                            out.println(VII.rome);
+                            break;
+                        case (8):
+                            out.println(VIII.rome);
+                            break;
+                        case (9):
+                            out.println(IX.rome);
+                            break;
+                        case (10):
+                            out.println(X.rome);
+                            break;
+                    }
                 }
-                out.print(L);
-            }
 
-            if (r3 >= 40 && r3 < 50) {
-                out.print("XL");
-                out.print(L);
-            }
-
-            if (r3 >= 50 && r3 < 90) {
-                out.print("L");
-                for (int i = 0; i < full - 5; i++) {
-
-                    out.print("X");
+                if (r3 > 10 && r3 < 40) {
+                    for (int i = 0; i < full; i++) {
+                        out.print("X");
+                    }
+                    out.print(L);
                 }
-                out.print(L);
-            }
-            if (r3 >= 90 && r3 < 100) {
-                out.print("XC");
-            }
-
-            if (r3 > 0) {
-                exit(0);
-            }
-
-            try {
-                parseInt(ex);
-                parseInt(ex2);
-            } catch (NumberFormatException e) {
-                out.println("Invalid input");
-                exit(0);
-            }
-
-            if (parseInt(ex) > 10 || parseInt(ex2) > 10) {
-                out.println("Please enter the numbers less than or equal to 10");
-                exit(0);
-            }
-
-            try {
-                parseInt(ex);
-                parseInt(ex2);
-                int g = 0;
-                switch (ex1) {
-                    case "+" -> g = (parseInt(ex) + parseInt(ex2));
-                    case "-" -> g = (parseInt(ex) - parseInt(ex2));
-                    case "*" -> g = (parseInt(ex) * parseInt(ex2));
-                    case "/" -> g = (parseInt(ex) / parseInt(ex2));
+                if (r3 >= 40 && r3 < 50) {
+                    out.print("XL");
+                    out.print(L);
                 }
-                out.println(g);
-            } catch (NumberFormatException exception) {
-                out.println("Invalid input");
-                exit(0);
+                if (r3 >= 50 && r3 < 90) {
+                    out.print("L");
+                    for (int i = 0; i < full - 5; i++) {
+
+                        out.print("X");
+                    }
+                    out.print(L);
+                }
+                if (r3 >= 90 && r3 < 100) {
+
+                    out.print("XC");
+                }
+                if (r3 == 100) {
+
+                    out.println("C");
+                }
+
             }
+
         }
     }
-
     class Roman {
         int figure;
         String rome;
@@ -269,6 +275,7 @@ public class Main {
             return i;
         }
     }
+
 
 
 
