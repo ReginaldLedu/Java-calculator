@@ -9,6 +9,18 @@ import static java.lang.System.*;
 public class Main {
 
     public static void main(String[] args) {
+        String[] Rome = new String[10];
+        Rome[0] = "I";
+        Rome[1] = "II";
+        Rome[2] = "III";
+        Rome[3] = "IV";
+        Rome[4] = "V";
+        Rome[5] = "VI";
+        Rome[6] = "VII";
+        Rome[7] = "VIII";
+        Rome[8] = "IX";
+        Rome[9] = "X";
+
         Roman II = new Roman();
         II.figure = 2;
         II.rome = "II";
@@ -44,162 +56,157 @@ public class Main {
         String ex = sc.next();
         String ex1 = sc.next();
         String ex2 = sc.next();
-        if (sc.nextLine().trim() != "") {
-            try {
-                throw new IOException();
-            } catch (IOException e) {
-                out.println("Please insert 2 numbers and 1 mathematical operator");
-                exit(0);
-            }
-        }
-        try {
-            parseInt(ex);
-            parseInt(ex2);
-            int p = parseInt(ex);
-            int k = parseInt(ex2);
-            if (p > 10 || k > 10) {
-                try {
-                    throw new NumberFormatException();
-                } catch (NumberFormatException e) {
-                    out.println("Please enter the numbers less than or equal to 10");
-                    exit(0);
-                }
-            }
-            out.println("Output:");
-            int g = 0;
-            switch (ex1) {
-                case "+" -> g = p + k;
-                case "-" -> g = p - k;
-                case "*" -> g = p * k;
-                case "/" -> g = p / k;
-            }
-            out.println(g);
-        } catch (NumberFormatException e) {
-            try {parseInt(ex);
-                 parseInt(ex2);
-            }
-                catch (NumberFormatException exception) {
-                    out.println("Different number systems");
-                    exit(0);
-                }
-            int r1 = 0;
-            switch (ex) {
-                case ("I"):
-                    r1 = I.figure;
-                    break;
-                case ("II"):
-                    r1 = II.figure;
-                    break;
-                case ("III"):
-                    r1 = III.figure;
-                    break;
-                case ("IV"):
-                    r1 = IV.figure;
-                    break;
-                case ("V"):
-                    r1 = V.figure;
-                    break;
-                case ("VI"):
-                    r1 = VI.figure;
-                    break;
-                case ("VII"):
-                    r1 = VII.figure;
-                    break;
-                case ("VIII"):
-                    r1 = VIII.figure;
-                    break;
-                case ("IX"):
-                    r1 = IX.figure;
-                    break;
-                case ("X"):
-                    r1 = X.figure;
-                    break;
-            }
-            int r2 = 9999;
-            switch (ex2) {
-                case ("I"):
-                    r2 = I.figure;
-                    break;
-                case ("II"):
-                    r2 = II.figure;
-                    break;
-                case ("III"):
-                    r2 = III.figure;
-                    break;
-                case ("IV"):
-                    r2 = IV.figure;
-                    break;
-                case ("V"):
-                    r2 = V.figure;
-                    break;
-                case ("VI"):
-                    r2 = VI.figure;
-                    break;
-                case ("VII"):
-                    r2 = VII.figure;
-                    break;
-                case ("VIII"):
-                    r2 = VIII.figure;
-                    break;
-                case ("IX"):
-                    r2 = IX.figure;
-                    break;
-                case ("X"):
-                    r2 = X.figure;
-                    break;
-            }
-            int r3 = 9999;
-            if (r1 > 0) {
-                switch (ex1) {
-                    case "+" -> r3 = (r1 + r2);
-                    case "-" -> r3 = (r1 - r2);
-                    case "*" -> r3 = (r1 * r2);
-                    case "/" -> r3 = (r1 / r2);
-                }
-            }
-            int full = r3 / 10;
-            int ost = r3 % 10;
-            String L = "L";
-            switch (ost) {
-                case (0):
-                    L = " ";
-                    break;
-                case (1):
-                    L = "I";
-                    break;
-                case (2):
-                    L = "II";
-                    break;
-                case (3):
-                    L = "III";
-                    break;
-                case (4):
-                    L = "IV";
-                    break;
-                case (6):
-                    L = "VI";
-                    break;
-                case (5):
-                    L = "V";
-                    break;
-                case (7):
-                    L = "VII";
-                    break;
-                case (8):
-                    L = "VIII";
-                    break;
-                case (9):
-                    L = "IX";
-                    break;
-            }
-            out.println("Output");
-            if (r3 <= 0) {
+
+            if (sc.nextLine().trim() != "") {
                 try {
                     throw new IOException();
-                } catch (IOException exception) {
-                    out.println("Result is not possible");
+                } catch (IOException e) {
+                    out.println("Please insert 2 numbers and 1 mathematical operator");
+                    exit(0);
                 }
             }
+            try {
+                parseInt(ex);
+                parseInt(ex2);
+                int p = parseInt(ex);
+                int k = parseInt(ex2);
+                if (p > 10 || k > 10) {
+                    try {
+                        throw new NumberFormatException();
+                    } catch (NumberFormatException e) {
+                        out.println("Please enter the numbers less than or equal to 10");
+                        exit(0);
+                    }
+                }
+                out.println("Output:");
+                int g = 0;
+                switch (ex1) {
+                    case "+" -> g = p + k;
+                    case "-" -> g = p - k;
+                    case "*" -> g = p * k;
+                    case "/" -> g = p / k;
+                }
+                out.println(g);
+            } catch (NumberFormatException e) {
+
+                int r1 = 0;
+                switch (ex) {
+                    case ("I"):
+                        r1 = I.figure;
+                        break;
+                    case ("II"):
+                        r1 = II.figure;
+                        break;
+                    case ("III"):
+                        r1 = III.figure;
+                        break;
+                    case ("IV"):
+                        r1 = IV.figure;
+                        break;
+                    case ("V"):
+                        r1 = V.figure;
+                        break;
+                    case ("VI"):
+                        r1 = VI.figure;
+                        break;
+                    case ("VII"):
+                        r1 = VII.figure;
+                        break;
+                    case ("VIII"):
+                        r1 = VIII.figure;
+                        break;
+                    case ("IX"):
+                        r1 = IX.figure;
+                        break;
+                    case ("X"):
+                        r1 = X.figure;
+                        break;
+                }
+                int r2 = 9999;
+                switch (ex2) {
+                    case ("I"):
+                        r2 = I.figure;
+                        break;
+                    case ("II"):
+                        r2 = II.figure;
+                        break;
+                    case ("III"):
+                        r2 = III.figure;
+                        break;
+                    case ("IV"):
+                        r2 = IV.figure;
+                        break;
+                    case ("V"):
+                        r2 = V.figure;
+                        break;
+                    case ("VI"):
+                        r2 = VI.figure;
+                        break;
+                    case ("VII"):
+                        r2 = VII.figure;
+                        break;
+                    case ("VIII"):
+                        r2 = VIII.figure;
+                        break;
+                    case ("IX"):
+                        r2 = IX.figure;
+                        break;
+                    case ("X"):
+                        r2 = X.figure;
+                        break;
+                }
+                int r3 = 9999;
+                if (r1 > 0) {
+                    switch (ex1) {
+                        case "+" -> r3 = (r1 + r2);
+                        case "-" -> r3 = (r1 - r2);
+                        case "*" -> r3 = (r1 * r2);
+                        case "/" -> r3 = (r1 / r2);
+                    }
+                }
+                int full = r3 / 10;
+                int ost = r3 % 10;
+                String L = "L";
+                switch (ost) {
+                    case (0):
+                        L = " ";
+                        break;
+                    case (1):
+                        L = "I";
+                        break;
+                    case (2):
+                        L = "II";
+                        break;
+                    case (3):
+                        L = "III";
+                        break;
+                    case (4):
+                        L = "IV";
+                        break;
+                    case (6):
+                        L = "VI";
+                        break;
+                    case (5):
+                        L = "V";
+                        break;
+                    case (7):
+                        L = "VII";
+                        break;
+                    case (8):
+                        L = "VIII";
+                        break;
+                    case (9):
+                        L = "IX";
+                        break;
+                }
+                out.println("Output");
+                if (r3 <= 0) {
+                    try {
+                        throw new IOException();
+                    } catch (IOException exception) {
+                        out.println("Result is not possible");
+                    }
+                }
                 if (r3 <= 10) {
                     switch (r3) {
                         case (1):
@@ -266,6 +273,7 @@ public class Main {
 
         }
     }
+
     class Roman {
         int figure;
         String rome;
@@ -275,8 +283,4 @@ public class Main {
             return i;
         }
     }
-
-
-
-
 
